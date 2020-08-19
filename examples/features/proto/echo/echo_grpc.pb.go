@@ -172,7 +172,7 @@ func (*UnimplementedEchoServer) BidirectionalStreamingEcho(Echo_BidirectionalStr
 	return status.Errorf(codes.Unimplemented, "method BidirectionalStreamingEcho not implemented")
 }
 
-func RegisterEchoServer(s *grpc.Server, srv EchoServer) {
+func RegisterEchoServer(s grpc.ServiceRegistrar, srv EchoServer) {
 	s.RegisterService(&_Echo_serviceDesc, srv)
 }
 

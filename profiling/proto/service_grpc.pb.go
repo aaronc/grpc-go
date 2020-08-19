@@ -72,7 +72,7 @@ func (*UnimplementedProfilingServer) GetStreamStats(context.Context, *GetStreamS
 	return nil, status.Errorf(codes.Unimplemented, "method GetStreamStats not implemented")
 }
 
-func RegisterProfilingServer(s *grpc.Server, srv ProfilingServer) {
+func RegisterProfilingServer(s grpc.ServiceRegistrar, srv ProfilingServer) {
 	s.RegisterService(&_Profiling_serviceDesc, srv)
 }
 

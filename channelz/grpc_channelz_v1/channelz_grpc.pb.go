@@ -152,7 +152,7 @@ func (*UnimplementedChannelzServer) GetSocket(context.Context, *GetSocketRequest
 	return nil, status.Errorf(codes.Unimplemented, "method GetSocket not implemented")
 }
 
-func RegisterChannelzServer(s *grpc.Server, srv ChannelzServer) {
+func RegisterChannelzServer(s grpc.ServiceRegistrar, srv ChannelzServer) {
 	s.RegisterService(&_Channelz_serviceDesc, srv)
 }
 

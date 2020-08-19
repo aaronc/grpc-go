@@ -242,7 +242,7 @@ func (*UnimplementedTestServiceServer) HalfDuplexCall(TestService_HalfDuplexCall
 	return status.Errorf(codes.Unimplemented, "method HalfDuplexCall not implemented")
 }
 
-func RegisterTestServiceServer(s *grpc.Server, srv TestServiceServer) {
+func RegisterTestServiceServer(s grpc.ServiceRegistrar, srv TestServiceServer) {
 	s.RegisterService(&_TestService_serviceDesc, srv)
 }
 
@@ -462,7 +462,7 @@ func (*UnimplementedUnimplementedServiceServer) UnimplementedCall(context.Contex
 	return nil, status.Errorf(codes.Unimplemented, "method UnimplementedCall not implemented")
 }
 
-func RegisterUnimplementedServiceServer(s *grpc.Server, srv UnimplementedServiceServer) {
+func RegisterUnimplementedServiceServer(s grpc.ServiceRegistrar, srv UnimplementedServiceServer) {
 	s.RegisterService(&_UnimplementedService_serviceDesc, srv)
 }
 
@@ -538,7 +538,7 @@ func (*UnimplementedLoadBalancerStatsServiceServer) GetClientStats(context.Conte
 	return nil, status.Errorf(codes.Unimplemented, "method GetClientStats not implemented")
 }
 
-func RegisterLoadBalancerStatsServiceServer(s *grpc.Server, srv LoadBalancerStatsServiceServer) {
+func RegisterLoadBalancerStatsServiceServer(s grpc.ServiceRegistrar, srv LoadBalancerStatsServiceServer) {
 	s.RegisterService(&_LoadBalancerStatsService_serviceDesc, srv)
 }
 

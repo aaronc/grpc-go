@@ -204,7 +204,7 @@ func (*UnimplementedRouteGuideServer) RouteChat(RouteGuide_RouteChatServer) erro
 	return status.Errorf(codes.Unimplemented, "method RouteChat not implemented")
 }
 
-func RegisterRouteGuideServer(s *grpc.Server, srv RouteGuideServer) {
+func RegisterRouteGuideServer(s grpc.ServiceRegistrar, srv RouteGuideServer) {
 	s.RegisterService(&_RouteGuide_serviceDesc, srv)
 }
 

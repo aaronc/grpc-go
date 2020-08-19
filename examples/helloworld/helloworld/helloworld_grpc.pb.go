@@ -54,7 +54,7 @@ func (*UnimplementedGreeterServer) SayHello(context.Context, *HelloRequest) (*He
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
 }
 
-func RegisterGreeterServer(s *grpc.Server, srv GreeterServer) {
+func RegisterGreeterServer(s grpc.ServiceRegistrar, srv GreeterServer) {
 	s.RegisterService(&_Greeter_serviceDesc, srv)
 }
 

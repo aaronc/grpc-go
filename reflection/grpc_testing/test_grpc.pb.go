@@ -88,7 +88,7 @@ func (*UnimplementedSearchServiceServer) StreamingSearch(SearchService_Streaming
 	return status.Errorf(codes.Unimplemented, "method StreamingSearch not implemented")
 }
 
-func RegisterSearchServiceServer(s *grpc.Server, srv SearchServiceServer) {
+func RegisterSearchServiceServer(s grpc.ServiceRegistrar, srv SearchServiceServer) {
 	s.RegisterService(&_SearchService_serviceDesc, srv)
 }
 

@@ -54,7 +54,7 @@ func (*UnimplementedRouteLookupServiceServer) RouteLookup(context.Context, *Rout
 	return nil, status.Errorf(codes.Unimplemented, "method RouteLookup not implemented")
 }
 
-func RegisterRouteLookupServiceServer(s *grpc.Server, srv RouteLookupServiceServer) {
+func RegisterRouteLookupServiceServer(s grpc.ServiceRegistrar, srv RouteLookupServiceServer) {
 	s.RegisterService(&_RouteLookupService_serviceDesc, srv)
 }
 

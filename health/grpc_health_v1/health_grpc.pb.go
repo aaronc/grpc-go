@@ -123,7 +123,7 @@ func (*UnimplementedHealthServer) Watch(*HealthCheckRequest, Health_WatchServer)
 	return status.Errorf(codes.Unimplemented, "method Watch not implemented")
 }
 
-func RegisterHealthServer(s *grpc.Server, srv HealthServer) {
+func RegisterHealthServer(s grpc.ServiceRegistrar, srv HealthServer) {
 	s.RegisterService(&_Health_serviceDesc, srv)
 }
 

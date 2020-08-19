@@ -86,7 +86,7 @@ func (*UnimplementedHandshakerServiceServer) DoHandshake(HandshakerService_DoHan
 	return status.Errorf(codes.Unimplemented, "method DoHandshake not implemented")
 }
 
-func RegisterHandshakerServiceServer(s *grpc.Server, srv HandshakerServiceServer) {
+func RegisterHandshakerServiceServer(s grpc.ServiceRegistrar, srv HandshakerServiceServer) {
 	s.RegisterService(&_HandshakerService_serviceDesc, srv)
 }
 

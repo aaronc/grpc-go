@@ -95,7 +95,7 @@ func (*UnimplementedMetricsServiceServer) GetGauge(context.Context, *GaugeReques
 	return nil, status.Errorf(codes.Unimplemented, "method GetGauge not implemented")
 }
 
-func RegisterMetricsServiceServer(s *grpc.Server, srv MetricsServiceServer) {
+func RegisterMetricsServiceServer(s grpc.ServiceRegistrar, srv MetricsServiceServer) {
 	s.RegisterService(&_MetricsService_serviceDesc, srv)
 }
 

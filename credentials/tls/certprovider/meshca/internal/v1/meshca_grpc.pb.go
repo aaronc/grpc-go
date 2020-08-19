@@ -56,7 +56,7 @@ func (*UnimplementedMeshCertificateServiceServer) CreateCertificate(context.Cont
 	return nil, status.Errorf(codes.Unimplemented, "method CreateCertificate not implemented")
 }
 
-func RegisterMeshCertificateServiceServer(s *grpc.Server, srv MeshCertificateServiceServer) {
+func RegisterMeshCertificateServiceServer(s grpc.ServiceRegistrar, srv MeshCertificateServiceServer) {
 	s.RegisterService(&_MeshCertificateService_serviceDesc, srv)
 }
 

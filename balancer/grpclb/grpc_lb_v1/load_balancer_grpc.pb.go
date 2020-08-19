@@ -76,7 +76,7 @@ func (*UnimplementedLoadBalancerServer) BalanceLoad(LoadBalancer_BalanceLoadServ
 	return status.Errorf(codes.Unimplemented, "method BalanceLoad not implemented")
 }
 
-func RegisterLoadBalancerServer(s *grpc.Server, srv LoadBalancerServer) {
+func RegisterLoadBalancerServer(s grpc.ServiceRegistrar, srv LoadBalancerServer) {
 	s.RegisterService(&_LoadBalancer_serviceDesc, srv)
 }
 

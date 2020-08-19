@@ -78,7 +78,7 @@ func (*UnimplementedServerReflectionServer) ServerReflectionInfo(ServerReflectio
 	return status.Errorf(codes.Unimplemented, "method ServerReflectionInfo not implemented")
 }
 
-func RegisterServerReflectionServer(s *grpc.Server, srv ServerReflectionServer) {
+func RegisterServerReflectionServer(s grpc.ServiceRegistrar, srv ServerReflectionServer) {
 	s.RegisterService(&_ServerReflection_serviceDesc, srv)
 }
 

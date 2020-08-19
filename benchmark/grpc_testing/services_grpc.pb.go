@@ -136,7 +136,7 @@ func (*UnimplementedBenchmarkServiceServer) UnconstrainedStreamingCall(Benchmark
 	return status.Errorf(codes.Unimplemented, "method UnconstrainedStreamingCall not implemented")
 }
 
-func RegisterBenchmarkServiceServer(s *grpc.Server, srv BenchmarkServiceServer) {
+func RegisterBenchmarkServiceServer(s grpc.ServiceRegistrar, srv BenchmarkServiceServer) {
 	s.RegisterService(&_BenchmarkService_serviceDesc, srv)
 }
 
@@ -389,7 +389,7 @@ func (*UnimplementedWorkerServiceServer) QuitWorker(context.Context, *Void) (*Vo
 	return nil, status.Errorf(codes.Unimplemented, "method QuitWorker not implemented")
 }
 
-func RegisterWorkerServiceServer(s *grpc.Server, srv WorkerServiceServer) {
+func RegisterWorkerServiceServer(s grpc.ServiceRegistrar, srv WorkerServiceServer) {
 	s.RegisterService(&_WorkerService_serviceDesc, srv)
 }
 

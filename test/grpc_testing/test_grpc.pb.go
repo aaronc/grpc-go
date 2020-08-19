@@ -242,7 +242,7 @@ func (*UnimplementedTestServiceServer) HalfDuplexCall(TestService_HalfDuplexCall
 	return status.Errorf(codes.Unimplemented, "method HalfDuplexCall not implemented")
 }
 
-func RegisterTestServiceServer(s *grpc.Server, srv TestServiceServer) {
+func RegisterTestServiceServer(s grpc.ServiceRegistrar, srv TestServiceServer) {
 	s.RegisterService(&_TestService_serviceDesc, srv)
 }
 
